@@ -8,4 +8,12 @@ public class ListElement{
 		this.next = null;
 		this.previous = null;
 	}
+	
+	public void setData(int data){
+		this.data = data;
+	}
+	
+	public int getData(){
+		return this.data;
+	}
 }
