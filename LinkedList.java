@@ -9,6 +9,42 @@ October 3, 2019
 
 public class LinkedList(){
     
-    ListElement le = new ListElement();
+    ListElement head = new ListElement();
+    ListElement currentPointer = new ListElement();
     
+    public LinkedList()
+    {
+        head = null;
+        currentPointer = null;
+    }
+    
+    public void addElement(ListElement le)
+    {
+        if(head == null)
+        {
+            head == le;
+            currentPointer = head;
+        }
+        
+        else
+        {
+            currentPointer.setNext(le);
+            currentPointer = currentPointer.getNext();
+        }
+    }
+    
+    public ListElement getElement(int index)
+    {
+        
+    }
+    
+    public ListElement deleteElement(int index)
+    {
+        
+    }
+    
+    public void printLinkedListHead()
+    {
+        
+    }
 }
