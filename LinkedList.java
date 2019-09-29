@@ -35,7 +35,28 @@ public class LinkedList(){
     
     public ListElement getElement(int index)
     {
-        
+        if(head == null)
+        {
+            return;
+        }
+        else
+        {
+            ListElement tempPtr = head;
+            
+            while((tempPtr.getNext() != null) && (tempPtr.getData() != index))
+            {
+                tempPtr = tempPtr.getNext();
+            }
+            
+            if(tempPtr.getData() == index)
+            {
+                return tempPtr;
+            }
+            else
+            {
+                return;
+            }
+        }
     }
     
     public ListElement deleteElement(int index)
