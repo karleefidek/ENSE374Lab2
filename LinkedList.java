@@ -22,7 +22,7 @@ public class LinkedList(){
     {
         if(head == null)
         {
-            head == le;
+            head = le;
             currentPointer = head;
         }
         
@@ -82,7 +82,7 @@ public class LinkedList(){
             }
             else
             {
-                return
+                return;
             }
         }
             
@@ -94,11 +94,11 @@ public class LinkedList(){
         
         while(tempPtr.getNext() != null)
         {
-            cout << tempPtr.getData() << " --> ";
+            System.out.print(tempPtr.getData() + " --> ");
             tempPtr = tempPtr.getNext();
         }
         
-        cout << tempPtr.getData();
+        System.out.print(tempPtr.getData());
     }
     
     public static void main (String[] args)
