@@ -11,13 +11,14 @@ class adapted from douglatr
  
 public class ListElement {
 	
-	
+	private ListElement previous;
 	private ListElement next;
 	private int data;
 	
 	
 	public ListElement()
 	{
+		this.previous = null;
 		this.next = null;
 		this.data = 0;
 	}

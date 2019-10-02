@@ -61,11 +61,65 @@ public class LinkedList(){
     
     public ListElement deleteElement(int index)
     {
+        if(head == null)
+        {
+            return;
+        }
+        else
+        {
+            ListElement tempPtr = head;
         
+            while((tempPtr.getNext() != null) && (tempPtr.getData() != index))
+            {
+                ListElement prevPtr = tempPtr;                
+                tempPtr = tempPtr.getNext();
+            }   
+        
+            if(tempPtr.getData() == index)
+            {
+                prevPtr.setNext(tempPtr.getNext());
+                return tempPtr;
+            }
+            else
+            {
+                return
+            }
+        }
+            
     }
     
     public void printLinkedListHead()
     {
+        ListElement tempPtr = head;
         
+        while(tempPtr.getNext() != null)
+        {
+            cout << tempPtr.getData() << " --> ";
+            tempPtr = tempPtr.getNext();
+        }
+        
+        cout << tempPtr.getData();
+    }
+    
+    public static void main (String[] args)
+    {
+        LinkedList list = new LinkedList();
+        ListElement element = new ListElement();
+        
+        element.setData(5);
+        list.addElement(element);
+        
+        element.setData(2);
+        list.addElement(element);
+        
+        element.setData(9);
+        list.addElement(element);
+        
+        list.printLinkedListHead();
+        
+        element.setData(5);
+        list.deleteElement(element);
+        
+        list.printLinkedListHead();
     }
 }
