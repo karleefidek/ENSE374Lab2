@@ -7,15 +7,13 @@ Assignment 2
 October 3, 2019
 */
 
-public class LinkedList(){
+public class LinkedList{
     
     ListElement head = new ListElement();
-    ListElement currentPointer = new ListElement();
     
     public LinkedList()
     {
         head = null;
-        currentPointer = null;
     }
     
     public void addElement(ListElement le)
@@ -23,13 +21,18 @@ public class LinkedList(){
         if(head == null)
         {
             head = le;
-            currentPointer = head;
         }
         
         else
         {
-            currentPointer.setNext(le);
-            currentPointer = currentPointer.getNext();
+            ListElement currPtr = head;
+            
+            while(currPtr.getNext() != null)
+            {
+                currPtr = currPtr.getNext();
+            }
+            
+            currPtr.setNext(le);
         }
     }
     
@@ -37,7 +40,7 @@ public class LinkedList(){
     {
         if(head == null)
         {
-            return;
+            return null;
         }
         else
         {
@@ -54,7 +57,7 @@ public class LinkedList(){
             }
             else
             {
-                return;
+                return null;
             }
         }
     }
@@ -63,15 +66,16 @@ public class LinkedList(){
     {
         if(head == null)
         {
-            return;
+            return null;
         }
         else
         {
             ListElement tempPtr = head;
+            ListElement prevPtr = null;
         
             while((tempPtr.getNext() != null) && (tempPtr.getData() != index))
             {
-                ListElement prevPtr = tempPtr;                
+                prevPtr = tempPtr;                
                 tempPtr = tempPtr.getNext();
             }   
         
@@ -82,7 +86,7 @@ public class LinkedList(){
             }
             else
             {
-                return;
+                return null;
             }
         }
             
@@ -90,15 +94,16 @@ public class LinkedList(){
     
     public void printLinkedListHead()
     {
-        ListElement tempPtr = head;
-        
-        while(tempPtr.getNext() != null)
+        if(head != null)
         {
-            System.out.print(tempPtr.getData() + " --> ");
-            tempPtr = tempPtr.getNext();
-        }
+            ListElement tempPtr = head;
         
-        System.out.print(tempPtr.getData());
+            while(tempPtr != null)
+            {
+                System.out.print(tempPtr.getData() + " --> ");
+                tempPtr = tempPtr.getNext();
+            }   
+        }
     }
     
     public static void main (String[] args)
@@ -117,8 +122,7 @@ public class LinkedList(){
         
         list.printLinkedListHead();
         
-        element.setData(5);
-        list.deleteElement(element);
+        list.deleteElement(5);
         
         list.printLinkedListHead();
     }
