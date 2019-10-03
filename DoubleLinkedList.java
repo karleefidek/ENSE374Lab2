@@ -13,7 +13,7 @@ public class DoubleLinkedList{
     ListElement tail = new ListElement();
     ListElement currPtr = new ListElement();
     
-    public LinkedList()
+    public DoubleLinkedList()
     {
         head = null;
         tail = null;
@@ -133,7 +133,7 @@ public class DoubleLinkedList{
     
     public static void main (String[] args)
     {
-        LinkedList list = new LinkedList();
+        DoubleLinkedList list = new DoubleLinkedList();
         ListElement e1 = new ListElement();
         ListElement e2 = new ListElement();
         ListElement e3 = new ListElement();
@@ -167,6 +167,6 @@ public class DoubleLinkedList{
         
         //list.printLinkedListHead();
         
-        //System.out.println("Retrieved element with value of " + list.getElement(9).getData() + " from the list");
+        System.out.println("Retrieved element with value of " + list.getElement(9).getData() + " from the list");
     }
 }
