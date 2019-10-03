@@ -113,12 +113,38 @@ public class DoubleLinkedList{
     {
         if(head != null)
         {
+            System.out.println("The list printed from the head is:");
+            
             ListElement tempPtr = head;
         
             while(tempPtr.getNext() != null)
             {
                 System.out.print(tempPtr.getData() + " --> ");
                 tempPtr = tempPtr.getNext();
+            } 
+            
+            System.out.print(tempPtr.getData());
+        }
+        else
+        {
+            System.out.print("No list to print.");
+        }
+        
+        System.out.println();
+    }
+    
+    public void printLinkedListTail()
+    {
+        if(tail != null)
+        {
+            System.out.println("The list printed from the tail is:");
+            
+            ListElement tempPtr = tail;
+        
+            while(tempPtr.getPrevious() != null)
+            {
+                System.out.print(tempPtr.getData() + " --> ");
+                tempPtr = tempPtr.getPrevious();
             } 
             
             System.out.print(tempPtr.getData());
@@ -150,10 +176,12 @@ public class DoubleLinkedList{
         list.addElement(e3);
         
         list.printLinkedListHead();
+        list.printLinkedListTail();
         
         System.out.println("Delete element with value of " + list.deleteElement(5).getData() + ". . .");
         
         list.printLinkedListHead();
+        list.printLinkedListTail();
         
         e4.setData(15);
         list.addElement(e4);
@@ -162,10 +190,12 @@ public class DoubleLinkedList{
         list.addElement(e5);
         
         list.printLinkedListHead();
+        list.printLinkedListTail();
         
         System.out.println("Delete element with value of " + list.deleteElement(15).getData() + ". . .");
         
         list.printLinkedListHead();
+        list.printLinkedListTail();
         
         System.out.println("Retrieved element with value of " + list.getElement(9).getData() + " from the list");
     }
