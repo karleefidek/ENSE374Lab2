@@ -38,9 +38,11 @@ public class LinkedList{
     
     public ListElement getElement(int index)
     {   
+        ListElement notFound = new ListElement();
+        
         if(head == null)
         {
-            return null;
+            return notFound;
         }
         else
         {
@@ -57,18 +59,19 @@ public class LinkedList{
             }
             else
             {
-                return null;
+                return notFound;
             }
         }
     }
     
     public ListElement deleteElement(int index)
     {
+        ListElement notFound = new ListElement();
         ListElement tempPtr = head;
         
         if(head == null)
         {
-            return null;
+            return notFound;
         }
         else
         {
@@ -95,7 +98,7 @@ public class LinkedList{
                 }
                 else
                 {
-                    return null;
+                    return notFound;
                 }   
             }
         }    
@@ -143,7 +146,7 @@ public class LinkedList{
         
         list.printLinkedListHead();
         
-        list.deleteElement(5);
+        System.out.println("Delete element with value of " + list.deleteElement(5).getData() + ". . .");
         
         list.printLinkedListHead();
         
@@ -155,8 +158,10 @@ public class LinkedList{
         
         list.printLinkedListHead();
         
-        list.deleteElement(15);
+        System.out.println("Delete element with value of " + list.deleteElement(15).getData() + ". . .");
         
         list.printLinkedListHead();
+        
+        System.out.println("Retrieved element with value of " + list.getElement(9).getData() + " from the list");
     }
 }
