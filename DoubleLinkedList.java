@@ -9,10 +9,9 @@ October 3, 2019
 
 public class DoubleLinkedList{
     
-    //list element at beginning, end, and current point of list
+    //list element at beginning and end of the list
     ListElement head = new ListElement();
     ListElement tail = new ListElement();
-    ListElement currPtr = new ListElement();
     
     //initial constructor
     public DoubleLinkedList()
@@ -44,13 +43,11 @@ public class DoubleLinkedList{
         {
             //links new element to the last element
             tail.setNext(le);
-            //sets the current pointer to the tail
-            currPtr = tail;
+            //sets the previous of the new element
+            //to the current tail
+            tail.getNext().setPrevious(tail);
             //sets tail to be the new element
             tail = tail.getNext();
-            //sets the previous of the new element
-            //to point at the current pointer
-            tail.setPrevious(currPtr);
         }
     }
     
