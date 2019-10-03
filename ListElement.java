@@ -42,4 +42,14 @@ public class ListElement {
 	{
 		return this.next;
 	}
+	
+	public void setPrevious(ListElement prev)
+	{
+		this.previous = prev;
+	}
+	
+	public ListElement getPrevious()
+	{
+		return this.previous;
+	}
 }
