@@ -37,7 +37,7 @@ public class LinkedList{
     }
     
     public ListElement getElement(int index)
-    {
+    {   
         if(head == null)
         {
             return null;
@@ -64,32 +64,41 @@ public class LinkedList{
     
     public ListElement deleteElement(int index)
     {
+        ListElement tempPtr = head;
+        
         if(head == null)
         {
             return null;
         }
         else
         {
-            ListElement tempPtr = head;
-            ListElement prevPtr = null;
-        
-            while((tempPtr.getNext() != null) && (tempPtr.getData() != index))
+            if(head.getData() == index)
             {
-                prevPtr = tempPtr;                
-                tempPtr = tempPtr.getNext();
-            }   
-        
-            if(tempPtr.getData() == index)
-            {
-                prevPtr.setNext(tempPtr.getNext());
+                head = head.getNext();
                 return tempPtr;
             }
             else
             {
-                return null;
+                tempPtr = head.getNext();
+                ListElement prevPtr = head;
+        
+                while((tempPtr.getNext() != null) && (tempPtr.getData() != index))
+                {
+                    prevPtr = tempPtr;                
+                    tempPtr = tempPtr.getNext();
+                }   
+        
+                if(tempPtr.getData() == index)
+                {
+                    prevPtr.setNext(tempPtr.getNext());
+                    return tempPtr;
+                }
+                else
+                {
+                    return null;
+                }   
             }
-        }
-            
+        }    
     }
     
     public void printLinkedListHead()
@@ -98,31 +107,55 @@ public class LinkedList{
         {
             ListElement tempPtr = head;
         
-            while(tempPtr != null)
+            while(tempPtr.getNext() != null)
             {
                 System.out.print(tempPtr.getData() + " --> ");
                 tempPtr = tempPtr.getNext();
-            }   
+            } 
+            
+            System.out.print(tempPtr.getData());
         }
+        else
+        {
+            System.out.print("No list to print.");
+        }
+        
+        System.out.println();
     }
     
     public static void main (String[] args)
     {
         LinkedList list = new LinkedList();
-        ListElement element = new ListElement();
+        ListElement e1 = new ListElement();
+        ListElement e2 = new ListElement();
+        ListElement e3 = new ListElement();
+        ListElement e4 = new ListElement();
+        ListElement e5 = new ListElement();
         
-        element.setData(5);
-        list.addElement(element);
+        e1.setData(5);
+        list.addElement(e1);
         
-        element.setData(2);
-        list.addElement(element);
+        e2.setData(2);
+        list.addElement(e2);
         
-        element.setData(9);
-        list.addElement(element);
+        e3.setData(9);
+        list.addElement(e3);
         
         list.printLinkedListHead();
         
         list.deleteElement(5);
+        
+        list.printLinkedListHead();
+        
+        e4.setData(15);
+        list.addElement(e4);
+        
+        e5.setData(4);
+        list.addElement(e5);
+        
+        list.printLinkedListHead();
+        
+        list.deleteElement(15);
         
         list.printLinkedListHead();
     }

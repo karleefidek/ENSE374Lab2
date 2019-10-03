@@ -23,7 +23,6 @@ public class ListElement {
 		this.data = 0;
 	}
 	
-	
 	public void setData(int data)
 	{
 		this.data = data;
