@@ -83,22 +83,22 @@ public class DoubleLinkedList{
             if(head.getData() == index)
             {
                 head = head.getNext();
+                head.setPrevious(null);
                 return tempPtr;
             }
             else
             {
                 tempPtr = head.getNext();
-                ListElement prevPtr = head;
         
                 while((tempPtr.getNext() != null) && (tempPtr.getData() != index))
-                {
-                    prevPtr = tempPtr;                
+                {              
                     tempPtr = tempPtr.getNext();
                 }   
         
                 if(tempPtr.getData() == index)
                 {
-                    prevPtr.setNext(tempPtr.getNext());
+                    tempPtr.getPrevious().setNext(tempPtr.getNext());
+                    tempPtr.getNext().setPrevious(tempPtr.getPrevious());
                     return tempPtr;
                 }
                 else
@@ -149,11 +149,11 @@ public class DoubleLinkedList{
         e3.setData(9);
         list.addElement(e3);
         
-        //list.printLinkedListHead();
+        list.printLinkedListHead();
         
-        //System.out.println("Delete element with value of " + list.deleteElement(5).getData() + ". . .");
+        System.out.println("Delete element with value of " + list.deleteElement(5).getData() + ". . .");
         
-        //list.printLinkedListHead();
+        list.printLinkedListHead();
         
         e4.setData(15);
         list.addElement(e4);
@@ -163,9 +163,9 @@ public class DoubleLinkedList{
         
         list.printLinkedListHead();
         
-        //System.out.println("Delete element with value of " + list.deleteElement(15).getData() + ". . .");
+        System.out.println("Delete element with value of " + list.deleteElement(15).getData() + ". . .");
         
-        //list.printLinkedListHead();
+        list.printLinkedListHead();
         
         System.out.println("Retrieved element with value of " + list.getElement(9).getData() + " from the list");
     }
